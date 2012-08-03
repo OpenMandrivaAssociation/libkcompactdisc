@@ -1,12 +1,12 @@
 Name:		libkcompactdisc
-Version:	4.8.95
-Release:	2
+Version: 4.9.0
+Release: 1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
 Group:		System/Libraries
 License:	GPLv2
 URL:		https://projects.kde.org/projects/kde/kdemultimedia/libkcompactdisc
-Source:		ftp://ftp.kde.org/pub/kde/unstable/%{version}/src/%{name}-%{version}.tar.xz
+Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(alsa)
 
