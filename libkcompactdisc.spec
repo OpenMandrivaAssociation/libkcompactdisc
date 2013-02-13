@@ -1,5 +1,5 @@
 Name:		libkcompactdisc
-Version:	4.9.4
+Version:	4.10.0
 Release:	1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
@@ -60,6 +60,9 @@ based on libkcompactdisc.
 %makeinstall_std -C build
 
 %changelog
+* Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 3:4.10.0-1
+- New version 4.10.0
+
 * Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 3:4.9.4-1
 - New version 4.9.4
 
