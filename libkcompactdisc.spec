@@ -1,13 +1,13 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkcompactdisc
-Version:	14.12.0
+Version:	14.12.2
 Release:	1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
 Group:		System/Libraries
 License:	GPLv2
 URL:		https://projects.kde.org/projects/kde/kdemultimedia/libkcompactdisc
-Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(alsa)
 
