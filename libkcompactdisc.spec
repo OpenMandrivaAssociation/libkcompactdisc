@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkcompactdisc
-Version:	15.04.3
-Release:	2
+Version:	15.08.0
+Release:	1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
 Group:		System/Libraries
@@ -54,7 +54,8 @@ based on libkcompactdisc.
 %setup -q
 
 %build
-%cmake_kde4
+%cmake_kde4 \
+	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
 %make
 
 %install
