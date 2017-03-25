@@ -1,51 +1,55 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkcompactdisc
-Version:	16.12.2
+Version:	17.03.80
 Release:	1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
 Group:		System/Libraries
 License:	GPLv2
 URL:		https://projects.kde.org/projects/kde/kdemultimedia/libkcompactdisc
-Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	kdelibs-devel
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+BuildRequires:	ninja
 BuildRequires:	pkgconfig(alsa)
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(Qt5Core)
 
 %description
 KDE library for playing & ripping CDs.
 
 #------------------------------------------------------------------------------
-%define kcompactdisc_major 4
-%define libkcompactdisc %mklibname kcompactdisc %{kcompactdisc_major}
+%define kf5compactdisc_major 5
+%define libkf5compactdisc %mklibname kf5compactdisc %{kf5compactdisc_major}
 
-%package -n %{libkcompactdisc}
+%package -n %{libkf5compactdisc}
 Summary:	KDE library for playing & ripping CDs
 Group:		System/Libraries
 
-%description -n %{libkcompactdisc}
+%description -n %{libkf5compactdisc}
 KDE library for playing & ripping CDs.
 
-%files -n %{libkcompactdisc}
-%{_libdir}/libkcompactdisc.so.%{kcompactdisc_major}
-%{_libdir}/libkcompactdisc.so.%{kcompactdisc_major}.*
+%files -n %{libkf5compactdisc}
+%{_libdir}/libKF5CompactDisc.so.%{kf5compactdisc_major}
+%{_libdir}/libKF5CompactDisc.so.%{kf5compactdisc_major}.*
 
 #------------------------------------------------------------------------------
+%define devname %mklibname kf5compactdisc -d
 
-%package devel
+%package -n %{devname}
 Summary:	Devel stuff for %{name}
 Group:		Development/KDE and Qt
-Requires:	%{libkcompactdisc} = %{EVRD}
+Requires:	%{libkf5compactdisc} = %{EVRD}
 Conflicts:	kdemultimedia4-devel < 3:4.8.95
 
-%description devel
+%description -n %{devname}
 KDE library for playing & ripping CDs.
 
 This package contains header files needed if you wish to build applications
 based on libkcompactdisc.
 
-%files devel
-%{_libdir}/libkcompactdisc.so
-%{_libdir}/cmake/libkcompactdisc
+%files -n %{devname}
+%{_libdir}/libKF5CompactDisc.so
+%{_libdir}/cmake/KF5CompactDisc
+%{_libdir}/qt5/mkspecs/modules/qt_KCompactDisc.pri
 %{_includedir}/*
 
 #------------------------------------------------------------------------------
@@ -54,10 +58,9 @@ based on libkcompactdisc.
 %setup -q
 
 %build
-%cmake_kde4 \
-	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
-%make
+%cmake_kde5
+%ninja
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
