@@ -12,6 +12,11 @@ BuildRequires:	ninja
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Core)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5Solid)
+BuildRequires:	cmake(Qt5DBus)
+BuildRequires:	cmake(Phonon4Qt5)
 
 %description
 KDE library for playing & ripping CDs.
