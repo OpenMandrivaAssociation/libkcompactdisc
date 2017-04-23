@@ -1,6 +1,9 @@
+%define kf5compactdisc_major 5
+%define libkf5compactdisc %mklibname kf5compactdisc %{kf5compactdisc_major}
+
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkcompactdisc
-Version:	17.03.80
+Version:	17.04.0
 Release:	1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
@@ -17,17 +20,18 @@ BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5Solid)
 BuildRequires:	cmake(Qt5DBus)
 BuildRequires:	cmake(Phonon4Qt5)
+Requires:	%{libkf5compactdisc} = %{EVRD}
 
 %description
 KDE library for playing & ripping CDs.
 
-#------------------------------------------------------------------------------
-%define kf5compactdisc_major 5
-%define libkf5compactdisc %mklibname kf5compactdisc %{kf5compactdisc_major}
+%files -f libkcompactdisc.lang
 
+#------------------------------------------------------------------------------
 %package -n %{libkf5compactdisc}
 Summary:	KDE library for playing & ripping CDs
 Group:		System/Libraries
+Requires:	%{name} = %{EVRD}
 
 %description -n %{libkf5compactdisc}
 KDE library for playing & ripping CDs.
@@ -68,4 +72,4 @@ based on libkcompactdisc.
 
 %install
 %ninja_install -C build
-
+%find_lang libkcompactdisc
