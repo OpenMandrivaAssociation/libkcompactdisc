@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   libkcompactdisc-17.12.1.tar.xz: d617813ad3d90bfbd324bfbf8a45e26d9c2e26b4
+sources:
+  libkcompactdisc-17.12.2.tar.xz: 0369c051e46a75f295465d55b0aa17803a3c2ce6
