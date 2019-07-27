@@ -3,7 +3,7 @@
 
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkcompactdisc
-Version:	 19.04.2
+Version:	 19.07.80
 Release:	1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
@@ -11,7 +11,6 @@ Group:		System/Libraries
 License:	GPLv2
 URL:		https://projects.kde.org/projects/kde/kdemultimedia/libkcompactdisc
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-Patch0:		libkcompactdisc-17.04.1-clang-4.0.1.patch
 BuildRequires:	ninja
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	cmake(ECM)
