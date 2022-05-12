@@ -3,7 +3,7 @@
 
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkcompactdisc
-Version:	22.04.0
+Version:	22.04.1
 Release:	1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
