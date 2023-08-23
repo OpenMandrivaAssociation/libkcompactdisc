@@ -3,7 +3,7 @@
 
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkcompactdisc
-Version:	23.04.3
+Version:	23.08.0
 Release:	1
 Epoch:		3
 Summary:	KDE library for playing & ripping CDs
@@ -59,6 +59,7 @@ based on libkcompactdisc.
 %{_libdir}/libKF5CompactDisc.so
 %{_libdir}/cmake/KF5CompactDisc
 %{_includedir}/*
+%{_libdir}/qt5/mkspecs/modules/qt_KCompactDisc.pri
 
 #------------------------------------------------------------------------------
 
