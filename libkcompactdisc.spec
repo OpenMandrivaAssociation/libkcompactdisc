@@ -10,7 +10,7 @@
 
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Name:		libkcompactdisc
-Version:	24.08.3
+Version:	24.12.0
 Release:	%{?git:0.%{git}.}1
 Summary:	KDE library for playing & ripping CDs
 Group:		System/Libraries
@@ -20,6 +20,10 @@ URL:		https://projects.kde.org/projects/kde/kdemultimedia/libkcompactdisc
 Source0:	https://invent.kde.org/multimedia/libkcompactdisc/-/archive/%{gitbranch}/libkcompactdisc-%{gitbranchd}.tar.bz2#/libkcompactdisc-%{git}.tar.bz2
 %else
 Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+%if %{with qt5}
+# Qt 5.x support was removed in 24.12.0
+Source1:	https://download.kde.org/%{stable}/release-service/24.08.3/src/%{name}-24.08.3.tar.xz
+%endif
 %endif
 BuildRequires:	ninja
 BuildRequires:	pkgconfig(alsa)
@@ -125,10 +129,12 @@ based on libkcompactdisc.
 
 %if %{with qt5}
 cd ..
+tar xf %{S:1}
 export CMAKE_BUILD_DIR=build-qt5
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-DQT_MAJOR_VERSION=5 \
+	../%{name}-24.08.3 \
 	-G Ninja
 %endif
 
