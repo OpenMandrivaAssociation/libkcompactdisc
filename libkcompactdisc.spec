@@ -29,6 +29,7 @@ BuildRequires:	ninja
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	cmake(ECM)
 %if %{with qt5}
+BuildRequires:	qmake5
 BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:	cmake(KF5I18n)
